@@ -71,14 +71,14 @@ namespace ProdTwoGameOne
                 if (textBlock.Name != "timeTextBlock")
                 {
                     textBlock.Visibility = Visibility.Visible;
-                
+
                     int index = random.Next(animalEmoji.Count);
                     string nextEmoji = animalEmoji[index];
                     textBlock.Text = nextEmoji;
                     animalEmoji.RemoveAt(index);
                 }
             }
-            timer.Start();
+            //timer.Start();
             tenthsOfSecondsElapsed = 0;
             matchesFound = 0;
         }
@@ -92,6 +92,8 @@ namespace ProdTwoGameOne
             TextBlock textBlock = sender as TextBlock;
             if (findingMatch == false)
             {
+                timer.Start();
+
                 textBlock.Visibility = Visibility.Hidden;
                 lastTextBlockClicked = textBlock;
                 findingMatch = true;
